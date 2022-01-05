@@ -1,0 +1,46 @@
+//Method 1 iterative approach
+import java.io.*;
+
+class GFG {
+    static char first(String str){
+        for (int i=0;i<str.length() ;i++ ){
+            if (Character.isUpperCase(str.charAt(i))){
+                return str.charAt(i);
+            }
+           
+        } 
+         return 0;
+    }
+	public static void main (String[] args) {
+		String ch = "geeksforgeeKs";
+		char res = first(ch);
+		
+		if (res == 0)System.out.println("There is no uppercase");
+		else System.out.println(res);
+	}
+}
+
+//Method 2 -> recursive approach
+import java.io.*;
+
+class GFG {
+    static char first(String str,int index){
+        if(str.charAt(index) == '\0'){
+            return 0;
+        }
+        if (Character.isUpperCase(str.charAt(index))){
+            return str.charAt(index);
+        }
+        return first(str,index+1);
+    }
+	public static void main (String[] args) {
+		String ch = "geeksforGeeks";
+		char res = first(ch,0);
+		
+		if (res == 0){
+		    System.out.println("There is no upperCase");
+		}else{
+		    System.out.println(res); 
+		}
+	}
+}
