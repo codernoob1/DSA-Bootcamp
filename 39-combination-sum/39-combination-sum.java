@@ -1,26 +1,21 @@
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        List<List<Integer>> answer = new ArrayList<>();
-        List<Integer> list = new ArrayList<>();
-        generateTotalSum(candidates,0,target,list,answer);
-        return answer;
+        List<List<Integer>> ans = new ArrayList<>();
+        generateAllCombi(candidates,target,0,ans,new ArrayList<>());
+        return ans;
     }
-    private void generateTotalSum(int[] nums,int currentIndex,int target,List<Integer>currentAns,List<List<Integer>> answer){
-       
-        if (target == 0){
-            answer.add(new ArrayList<>(currentAns));
+    private void generateAllCombi(int[] arr,int target,int ind,List<List<Integer>> ans,List<Integer> ds){
+        if (ind >= arr.length){
+            if(target == 0){
+                ans.add(new ArrayList<>(ds));
+            }
             return;
         }
-        if (currentIndex >= nums.length) return;
-        
-        int currentVal = nums[currentIndex];
-        
-        if (target >= currentVal){
-            currentAns.add(currentVal);
-            generateTotalSum(nums,currentIndex,target-currentVal,currentAns,answer);
-            currentAns.remove(currentAns.size()-1);
+        if(arr[ind]<= target){
+            ds.add(arr[ind]);
+            generateAllCombi(arr,target-arr[ind],ind,ans,ds);
+            ds.remove(ds.size()-1);
         }
-        generateTotalSum(nums,currentIndex+1,target,currentAns,answer);
-        return;
+        generateAllCombi(arr,target,ind+1,ans,ds);
     }
 }
