@@ -40,14 +40,14 @@ class Solution{
         return ans;
        
     }
-    void print(ArrayList<Integer> arr,int sum,int ind,ArrayList<Integer> ans,int N){
-        if (ind>=arr.size()){
+    void print(ArrayList<Integer> arr,int ind,int sum,ArrayList<Integer> ans,int N ){
+        
+        if (ind >= arr.size()){
             ans.add(sum);
             return;
         }
-        print(arr,sum+arr.get(ind),ind+1,ans,N);
+        print(arr,ind+1,sum+arr.get(ind),ans,N);
         
-        print(arr,sum,ind+1,ans,N);
-        
+         print(arr,ind+1,sum,ans,N);
     }
 }
