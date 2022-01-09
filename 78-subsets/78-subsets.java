@@ -5,17 +5,26 @@ class Solution {
         return powerSet;
     }
     private void generateAllSubsets(int[] nums,int currentIndex,List<Integer>currentSubSet,List<List<Integer>> powerSet){
-        
-        if (currentIndex >= nums.length){
+       
+        if(currentIndex >= nums.length){
             powerSet.add(new ArrayList<>(currentSubSet));
             return;
         }
-        int currentVal = nums[currentIndex];
-        
-        currentSubSet.add(currentVal);
+        currentSubSet.add(nums[currentIndex]);
         generateAllSubsets(nums,currentIndex+1,currentSubSet,powerSet);
         
         currentSubSet.remove(currentSubSet.size()-1);
         generateAllSubsets(nums,currentIndex+1,currentSubSet,powerSet);
+        
+
     }
+    /*
+    powerSet.add(new ArrayList<>(currentSubSet));
+                for (int i = currentIndex;i<nums.length;i++){
+                currentSubSet.add(nums[i]);
+                generateAllSubsets(nums,i+1,currentSubSet,powerSet);
+                currentSubSet.remove(currentSubSet.size()-1);
+            }
+    
+    */
 }
