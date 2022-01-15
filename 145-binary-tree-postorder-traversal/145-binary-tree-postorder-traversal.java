@@ -16,6 +16,31 @@
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
+        Stack<TreeNode> ds = new Stack<>();
+        
+        if(root == null) return ans;
+        ds.push(root);
+        
+        while(!ds.empty()){
+            TreeNode currentNode = ds.pop();
+            ans.add(currentNode.val);
+            
+            if(currentNode.left != null){
+                ds.push(currentNode.left);
+            }
+            if(currentNode.right != null){
+                ds.push(currentNode.right);
+            }
+        }
+        Collections.reverse(ans);
+        return ans;
+    }
+
+}
+/*
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> ans = new ArrayList<>();
         postOrder(root,ans);
         return ans;
     }
@@ -28,3 +53,4 @@ class Solution {
         ans.add(root.val);
     }
 }
+*/
