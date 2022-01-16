@@ -13,6 +13,7 @@
  *     }
  * }
  */
+/*This is using stack*/
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
        List<Integer> ans = new ArrayList<>();
@@ -38,7 +39,7 @@ class Solution {
 
 }
 
-/*
+/*This is using recursion*/
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
        List<Integer> ans = new ArrayList<>();
