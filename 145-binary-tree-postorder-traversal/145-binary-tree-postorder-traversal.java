@@ -13,6 +13,7 @@
  *     }
  * }
  */
+/* This is using Stack */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
@@ -37,7 +38,7 @@ class Solution {
     }
 
 }
-/*
+/* This is using recursion */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> ans = new ArrayList<>();
@@ -53,4 +54,3 @@ class Solution {
         ans.add(root.val);
     }
 }
-*/
